@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:ignore="Autofill">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_four"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/from"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="0.00"
+            android:inputType="numberDecimal"
+            android:padding="16dp"
+            android:textAppearance="?attr/textAppearanceHeadline2"
+            tools:text="1.23" />
+
+        <TextView
+            android:id="@+id/from_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical|end"
+            android:minEms="4"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            tools:text="BTC" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/dark_four"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/to"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="0.00"
+            android:inputType="numberDecimal"
+            android:padding="16dp"
+            android:textAppearance="?attr/textAppearanceHeadline2"
+            tools:text="1.23" />
+
+        <TextView
+            android:id="@+id/to_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical|end"
+            android:minEms="4"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            tools:text="BTC" />
+
+    </LinearLayout>
+
+</LinearLayout>

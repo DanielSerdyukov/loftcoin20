@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="buttonWelcome" format="reference" />
+    <attr name="walletCardBackground" format="color|reference" />
+    <attr name="walletCardWidth" format="dimension|reference" />
+    <attr name="walletCardHeight" format="dimension|reference" />
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- https://material.io/develop/android/theming/color/ -->
+        <!-- https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739 -->
+        <item name="colorPrimary">@color/dark_six</item>
+        <item name="colorSecondary">@color/grey_blue</item>
+        <item name="colorPrimaryVariant">@color/dark_seven</item>
+        <item name="colorOnSurface">@android:color/white</item>
+
+        <item name="android:colorBackground">?attr/colorPrimary</item>
+
+        <item name="textAppearanceHeadline1">@style/TextAppearance.AppTheme.H1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.AppTheme.H2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.AppTheme.H3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.AppTheme.H4</item>
+
+        <item name="actionBarTheme">@style/AppTheme.AppBarOverlay</item>
+        <item name="actionBarPopupTheme">@style/AppTheme.PopupOverlay</item>
+
+        <item name="bottomNavigationStyle">@style/AppTheme.BottomNavigationView</item>
+
+        <item name="buttonWelcome">@style/Widget.AppTheme.Button.Welcome</item>
+        <item name="walletCardBackground">@color/dark_five</item>
+        <item name="walletCardWidth">240dp</item>
+        <item name="walletCardHeight">160dp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="AppTheme.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">?attr/colorPrimaryVariant</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+    </style>
+
+    <style name="Widget.AppTheme.Button.Welcome" parent="Widget.MaterialComponents.TextView">
+        <item name="android:background">@drawable/btn_welcome</item>
+        <item name="android:textAppearance">?attr/textAppearanceButton</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">64dp</item>
+        <item name="android:paddingEnd">64dp</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme" parent="TextAppearance.MaterialComponents.Body1" />
+
+    <style name="TextAppearance.AppTheme.H1">
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.H2">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.H3">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.H4">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

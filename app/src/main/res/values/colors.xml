@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#191A29</color>
+
+    <!-- Zeplin Stylesheet -->
+    <color name="watermelon">#ff4465</color>
+    <color name="pumpkin_orange">#ff7416</color>
+    <color name="lemon_yellow">#f5ff30</color>
+    <color name="golden_yellow">#f6ca1d</color>
+    <color name="weird_green">#3fe77b</color>
+    <color name="blue_grey">#9c9eb9</color>
+    <color name="grey_blue">#66688f</color>
+    <color name="slate">#51526b</color>
+    <color name="dusk">#3f415d</color>
+    <color name="dark_one">#323348</color>
+    <color name="dark_two">#212237</color>
+    <color name="dark_three">#19192a</color>
+    <color name="dark_four">#313249</color>
+    <color name="dark_five">#2e2f47</color>
+    <color name="dark_six">#191a2a</color>
+    <color name="dark_seven">#10101a</color>
+</resources>
