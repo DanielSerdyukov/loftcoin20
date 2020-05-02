@@ -38,6 +38,7 @@ class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.ViewHolder> {
 
         ViewHolder(@NonNull LiWalletBinding binding) {
             super(binding.getRoot());
+            binding.getRoot().setClipToOutline(true);
         }
 
     }
