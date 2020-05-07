@@ -50,7 +50,7 @@ public class CurrencyDialog extends AppCompatDialogFragment {
         binding.recycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
         binding.recycler.setAdapter(adapter);
         currencyRepo.availableCurrencies().observe(this, adapter::submitList);
-        onItemClick = new OnItemClick(binding.recycler.getContext(), (v) -> {
+        onItemClick = new OnItemClick((v) -> {
             final RecyclerView.ViewHolder viewHolder = binding.recycler.findContainingViewHolder(v);
             if (viewHolder != null) {
                 final Currency item = adapter.getItem(viewHolder.getAdapterPosition());
