@@ -5,6 +5,8 @@
     <attr name="walletCardBackground" format="color|reference" />
     <attr name="walletCardWidth" format="dimension|reference" />
     <attr name="walletCardHeight" format="dimension|reference" />
+    <attr name="textNegative" format="color|reference" />
+    <attr name="textPositive" format="color|reference" />
 
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- https://material.io/develop/android/theming/color/ -->
@@ -25,11 +27,19 @@
         <item name="actionBarPopupTheme">@style/AppTheme.PopupOverlay</item>
 
         <item name="bottomNavigationStyle">@style/AppTheme.BottomNavigationView</item>
+        <item name="materialAlertDialogTheme">@style/AppTheme.AlertDialog</item>
 
         <item name="buttonWelcome">@style/Widget.AppTheme.Button.Welcome</item>
         <item name="walletCardBackground">@color/dark_five</item>
         <item name="walletCardWidth">240dp</item>
         <item name="walletCardHeight">160dp</item>
+        <item name="textNegative">@color/watermelon</item>
+        <item name="textPositive">@color/weird_green</item>
+    </style>
+
+    <!-- https://material.io/develop/android/components/dialog/ -->
+    <style name="AppTheme.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorSurface">@color/dark_four</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">

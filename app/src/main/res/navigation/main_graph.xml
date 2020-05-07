@@ -23,4 +23,10 @@
         android:label="@string/converter"
         tools:layout="@layout/fragment_converter" />
 
+    <dialog
+        android:id="@+id/currency_dialog"
+        android:name="com.lofschool.loftcoin.ui.currency.CurrencyDialog"
+        android:label="CurrencyDialog"
+        tools:layout="@layout/dialog_currency" />
+
 </navigation>
