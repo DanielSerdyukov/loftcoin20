@@ -1,5 +1,6 @@
 package com.lofschool.loftcoin.util;
 
+import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class OnItemClick implements RecyclerView.OnItemTouchListener {
 
     private final View.OnClickListener listener;
+
+    private long downTime;
 
     public OnItemClick(@NonNull View.OnClickListener listener) {
         this.listener = listener;
@@ -35,8 +38,10 @@ public class OnItemClick implements RecyclerView.OnItemTouchListener {
     }
 
     private boolean isSingleTap(MotionEvent e) {
-        if (MotionEvent.ACTION_UP == e.getActionMasked()) {
-            return e.getEventTime() - e.getDownTime() > ViewConfiguration.getTapTimeout();
+        if (MotionEvent.ACTION_DOWN == e.getActionMasked()) {
+            downTime = SystemClock.uptimeMillis();
+        } else if (MotionEvent.ACTION_UP == e.getActionMasked()) {
+            return e.getEventTime() - downTime <= ViewConfiguration.getTapTimeout();
         }
         return false;
     }

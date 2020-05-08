@@ -11,19 +11,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.lofschool.loftcoin.BaseComponent;
 import com.lofschool.loftcoin.R;
-import com.lofschool.loftcoin.data.CurrencyRepo;
-import com.lofschool.loftcoin.data.CurrencyRepoImpl;
 import com.lofschool.loftcoin.databinding.FragmentRatesBinding;
 import com.lofschool.loftcoin.util.PriceFormatter;
 
-import timber.log.Timber;
+import javax.inject.Inject;
 
 public class RatesFragment extends Fragment {
+
+    private final RatesComponent component;
 
     private FragmentRatesBinding binding;
 
@@ -31,14 +33,19 @@ public class RatesFragment extends Fragment {
 
     private RatesViewModel viewModel;
 
-    private CurrencyRepo currencyRepo;
+    @Inject
+    public RatesFragment(BaseComponent baseComponent) {
+        component = DaggerRatesComponent.builder()
+            .baseComponent(baseComponent)
+            .build();
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(RatesViewModel.class);
+        viewModel = new ViewModelProvider(this, component.viewModelFactory())
+            .get(RatesViewModel.class);
         adapter = new RatesAdapter(new PriceFormatter());
-        currencyRepo = new CurrencyRepoImpl(requireContext());
     }
 
     @Nullable
@@ -57,9 +64,6 @@ public class RatesFragment extends Fragment {
         binding.recycler.setHasFixedSize(true);
         viewModel.coins().observe(getViewLifecycleOwner(), adapter::submitList);
         viewModel.isRefreshing().observe(getViewLifecycleOwner(), binding.refresher::setRefreshing);
-        currencyRepo.currency().observe(getViewLifecycleOwner(), (currency) -> {
-            Timber.d("%s", currency);
-        });
     }
 
     @Override
