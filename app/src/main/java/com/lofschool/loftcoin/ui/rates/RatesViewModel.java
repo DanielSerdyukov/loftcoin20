@@ -3,40 +3,43 @@ package com.lofschool.loftcoin.ui.rates;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
 import com.lofschool.loftcoin.data.Coin;
 import com.lofschool.loftcoin.data.CoinsRepo;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import javax.inject.Inject;
 
-import timber.log.Timber;
-
 public class RatesViewModel extends ViewModel {
-
-    private final MutableLiveData<List<Coin>> coins = new MutableLiveData<>();
 
     private final MutableLiveData<Boolean> isRefreshing = new MutableLiveData<>();
 
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final MutableLiveData<Boolean> forceRefresh = new MutableLiveData<>(true);
 
-    private final CoinsRepo coinsRepo;
-
-    private Future<?> future;
+    private final LiveData<List<Coin>> coins;
 
     // AppComponent(BaseComponent) -> MainComponent -> Fragment(BaseComponent) -> RatesComponent -> RatesViewModel()
 
     @Inject
     public RatesViewModel(CoinsRepo coinsRepo) {
-        this.coinsRepo = coinsRepo;
-        refresh();
+        // (f|t) -> forceRefresh -> query -> listings
+        final LiveData<CoinsRepo.Query> query = Transformations
+            .map(forceRefresh, (r) -> {
+                isRefreshing.postValue(true);
+                return CoinsRepo.Query
+                    .builder()
+                    .forceUpdate(r)
+                    .currency("USD")
+                    .build();
+            });
+        final LiveData<List<Coin>> coins = Transformations.switchMap(query, coinsRepo::listings);
+        this.coins = Transformations.map(coins, (c) -> {
+            isRefreshing.postValue(false);
+            return c;
+        });
     }
 
     @NonNull
@@ -50,21 +53,7 @@ public class RatesViewModel extends ViewModel {
     }
 
     final void refresh() {
-        isRefreshing.postValue(true);
-        future = executor.submit(() -> {
-            try {
-                coins.postValue(new ArrayList<>(coinsRepo.listings("USD")));
-                isRefreshing.postValue(false);
-            } catch (IOException e) {
-                Timber.e(e);
-            }
-        });
+        forceRefresh.postValue(true);
     }
 
-    @Override
-    protected void onCleared() {
-        if (future != null) {
-            future.cancel(true);
-        }
-    }
 }
