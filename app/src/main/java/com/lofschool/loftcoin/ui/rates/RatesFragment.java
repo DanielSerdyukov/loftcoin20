@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,7 +44,7 @@ public class RatesFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this, component.viewModelFactory())
             .get(RatesViewModel.class);
-        adapter = new RatesAdapter(new PriceFormatter());
+        adapter = component.ratesAdapter();
     }
 
     @Nullable
@@ -60,8 +59,9 @@ public class RatesFragment extends Fragment {
         setHasOptionsMenu(true);
         binding = FragmentRatesBinding.bind(view);
         binding.recycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        binding.recycler.swapAdapter(adapter, false);
+        binding.recycler.setAdapter(adapter);
         binding.recycler.setHasFixedSize(true);
+        binding.refresher.setOnRefreshListener(viewModel::refresh);
         viewModel.coins().observe(getViewLifecycleOwner(), adapter::submitList);
         viewModel.isRefreshing().observe(getViewLifecycleOwner(), binding.refresher::setRefreshing);
     }
@@ -79,13 +79,16 @@ public class RatesFragment extends Fragment {
                 .findNavController(this)
                 .navigate(R.id.currency_dialog);
             return true;
+        } else if (R.id.sort_dialog == item.getItemId()) {
+            viewModel.switchSortingOrder();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onDestroyView() {
-        binding.recycler.swapAdapter(null, false);
+        binding.recycler.setAdapter(null);
         super.onDestroyView();
     }
 

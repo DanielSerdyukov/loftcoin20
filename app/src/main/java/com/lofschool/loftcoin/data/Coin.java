@@ -14,4 +14,6 @@ public interface Coin {
 
     double change24h();
 
+    String currencyCode();
+
 }

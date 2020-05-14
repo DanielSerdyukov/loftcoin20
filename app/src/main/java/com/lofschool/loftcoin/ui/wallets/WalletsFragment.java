@@ -50,10 +50,6 @@ public class WalletsFragment extends Fragment {
 
         binding.recycler.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
         binding.recycler.addOnScrollListener(new CarouselScroller());
-
-        binding.recycler.setAdapter(new WalletsAdapter());
-        binding.recycler.setVisibility(View.VISIBLE);
-        binding.walletCard.setVisibility(View.GONE);
     }
 
     @Override
