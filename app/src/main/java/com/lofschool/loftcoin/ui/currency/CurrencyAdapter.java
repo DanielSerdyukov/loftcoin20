@@ -13,7 +13,7 @@ import com.lofschool.loftcoin.databinding.LiCurrencyBinding;
 
 import java.util.Objects;
 
-public class CurrencyAdapter extends ListAdapter<Currency, CurrencyAdapter.ViewHolder> {
+class CurrencyAdapter extends ListAdapter<Currency, CurrencyAdapter.ViewHolder> {
 
     private LayoutInflater inflater;
 

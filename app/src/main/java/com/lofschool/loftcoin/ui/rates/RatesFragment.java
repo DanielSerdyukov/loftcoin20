@@ -18,11 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.lofschool.loftcoin.BaseComponent;
 import com.lofschool.loftcoin.R;
 import com.lofschool.loftcoin.databinding.FragmentRatesBinding;
-import com.lofschool.loftcoin.util.PriceFormatter;
 
 import javax.inject.Inject;
 
+import io.reactivex.disposables.CompositeDisposable;
+
 public class RatesFragment extends Fragment {
+
+    private final CompositeDisposable disposable = new CompositeDisposable();
 
     private final RatesComponent component;
 
@@ -62,8 +65,8 @@ public class RatesFragment extends Fragment {
         binding.recycler.setAdapter(adapter);
         binding.recycler.setHasFixedSize(true);
         binding.refresher.setOnRefreshListener(viewModel::refresh);
-        viewModel.coins().observe(getViewLifecycleOwner(), adapter::submitList);
-        viewModel.isRefreshing().observe(getViewLifecycleOwner(), binding.refresher::setRefreshing);
+        disposable.add(viewModel.coins().subscribe(adapter::submitList));
+        disposable.add(viewModel.isRefreshing().subscribe(binding.refresher::setRefreshing));
     }
 
     @Override
@@ -89,6 +92,7 @@ public class RatesFragment extends Fragment {
     @Override
     public void onDestroyView() {
         binding.recycler.setAdapter(null);
+        disposable.clear();
         super.onDestroyView();
     }
 

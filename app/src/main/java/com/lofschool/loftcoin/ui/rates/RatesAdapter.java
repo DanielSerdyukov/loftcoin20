@@ -16,7 +16,7 @@ import com.lofschool.loftcoin.R;
 import com.lofschool.loftcoin.data.Coin;
 import com.lofschool.loftcoin.databinding.LiRateBinding;
 import com.lofschool.loftcoin.util.ImageLoader;
-import com.lofschool.loftcoin.util.OutlineCircle;
+import com.lofschool.loftcoin.widget.OutlineCircle;
 import com.lofschool.loftcoin.util.PercentFormatter;
 import com.lofschool.loftcoin.util.PriceFormatter;
 

@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.util;
+package com.lofschool.loftcoin.widget;
 
 import android.graphics.Outline;
 import android.view.View;

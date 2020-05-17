@@ -1,18 +1,21 @@
 package com.lofschool.loftcoin.data;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.lifecycle.LiveData;
 
 import com.google.auto.value.AutoValue;
 
-import java.io.IOException;
 import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.Single;
 
 public interface CoinsRepo {
 
     @NonNull
-    LiveData<List<Coin>> listings(@NonNull Query query);
+    Observable<List<Coin>> listings(@NonNull Query query);
+
+    @NonNull
+    Single<Coin> coin(@NonNull Currency currency, long id);
 
     @AutoValue
     abstract class Query {
@@ -20,7 +23,8 @@ public interface CoinsRepo {
         @NonNull
         public static Builder builder() {
             return new AutoValue_CoinsRepo_Query.Builder()
-                .forceUpdate(true);
+                .forceUpdate(true)
+                .sortBy(SortBy.RANK);
         }
 
         abstract String currency();

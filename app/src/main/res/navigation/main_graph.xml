@@ -26,7 +26,7 @@
     <dialog
         android:id="@+id/currency_dialog"
         android:name="com.lofschool.loftcoin.ui.currency.CurrencyDialog"
-        android:label="CurrencyDialog"
+        android:label="@string/choose_currency"
         tools:layout="@layout/dialog_currency" />
 
 </navigation>
