@@ -27,4 +27,7 @@
 
     <string name="default_channel_id" translatable="false">default_channel</string>
     <string name="default_channel_name">@string/app_name</string>
+
+    <!-- Wallets Fragment -->
+    <string name="add">Добавить</string>
 </resources>

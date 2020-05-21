@@ -20,4 +20,6 @@ abstract class ConverterComponent {
 
     abstract ViewModelProvider.Factory viewModelFactory();
 
+    abstract CoinsSheetAdapter coinsSheetAdapter();
+
 }

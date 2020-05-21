@@ -29,4 +29,10 @@
         android:label="@string/choose_currency"
         tools:layout="@layout/dialog_currency" />
 
+    <dialog
+        android:id="@+id/coins_sheet"
+        android:name="com.lofschool.loftcoin.ui.converter.CoinsSheet"
+        android:label="@string/choose_currency"
+        tools:layout="@layout/dialog_currency" />
+
 </navigation>
