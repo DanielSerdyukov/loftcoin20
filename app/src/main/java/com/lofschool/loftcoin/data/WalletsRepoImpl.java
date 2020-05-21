@@ -55,9 +55,9 @@ class WalletsRepoImpl implements WalletsRepo {
                 emitter.setCancellable(registration::remove);
             })
             .map(QuerySnapshot::getDocuments)
-            .switchMapSingle((documents) -> Observable
+            .concatMapSingle((documents) -> Observable
                 .fromIterable(documents)
-                .flatMapSingle((document) -> coinsRepo
+                .concatMapSingle((document) -> coinsRepo
                     .coin(currency, Objects.requireNonNull(document
                         .getLong("coinId"), "coinId"))
                     .map((coin) -> Wallet.create(
