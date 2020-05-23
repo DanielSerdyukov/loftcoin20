@@ -34,6 +34,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -81,4 +87,22 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-firestore:21.4.3'
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
+
+
+    testImplementation "junit:junit:4.13"
+    testImplementation "com.google.truth:truth:1.0.1"
+    testImplementation "androidx.test:core:1.2.0"
+    testImplementation "androidx.test.ext:junit:1.1.1"
+    testImplementation "androidx.test.ext:truth:1.2.0"
+    testImplementation "org.robolectric:robolectric:4.3.1"
+
+    androidTestImplementation "junit:junit:4.13"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "androidx.test:core:1.2.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test.ext:truth:1.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:3.2.0"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:3.2.0"
+
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
@@ -21,22 +22,46 @@ public class SplashActivity extends AppCompatActivity {
 
     private SharedPreferences prefs;
 
+    @VisibleForTesting
+    SplashIdling idling = new NoopIdling();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean(WelcomeActivity.KEY_SHOW_WELCOME, true)) {
-            goNext = () -> startActivity(new Intent(this, WelcomeActivity.class));
+            goNext = () -> {
+                startActivity(new Intent(this, WelcomeActivity.class));
+                idling.idle();
+            };
         } else {
-            goNext = () -> startActivity(new Intent(this, MainActivity.class));
+            goNext = () -> {
+                startActivity(new Intent(this, MainActivity.class));
+                idling.idle();
+            };
         }
         handler.postDelayed(goNext, 1500);
+        idling.busy();
     }
 
     @Override
     protected void onStop() {
         handler.removeCallbacks(goNext);
         super.onStop();
+    }
+
+    private static class NoopIdling implements SplashIdling {
+
+        @Override
+        public void busy() {
+
+        }
+
+        @Override
+        public void idle() {
+
+        }
+
     }
 }

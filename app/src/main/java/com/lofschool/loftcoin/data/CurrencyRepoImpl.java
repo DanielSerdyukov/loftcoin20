@@ -19,8 +19,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 
 @Singleton
 class CurrencyRepoImpl implements CurrencyRepo {
@@ -52,7 +50,7 @@ class CurrencyRepoImpl implements CurrencyRepo {
     public Observable<Currency> currency() {
         return Observable.create(emitter -> {
             SharedPreferences.OnSharedPreferenceChangeListener listener = (prefs, key) -> {
-                if (!emitter.isDisposed()) {
+                if (!emitter.isDisposed() && KEY_CURRENCY.equals(key)) {
                     emitter.onNext(availableCurrencies.get(prefs.getString(key, "USD")));
                 }
             };

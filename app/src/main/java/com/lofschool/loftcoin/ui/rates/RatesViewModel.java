@@ -9,7 +9,6 @@ import com.lofschool.loftcoin.data.CurrencyRepo;
 import com.lofschool.loftcoin.data.SortBy;
 import com.lofschool.loftcoin.util.RxSchedulers;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -59,8 +58,8 @@ public class RatesViewModel extends ViewModel {
             .map((qb) -> qb.forceUpdate(forceUpdate.getAndSet(false)))
             .map(CoinsRepo.Query.Builder::build)
             .switchMap((q) -> coinsRepo.listings(q)
-                .doOnError(error::onNext)
-                .retryWhen((e) -> onRetry)
+                    .doOnError(error::onNext)
+                    .retryWhen((e) -> onRetry)
 //                .onErrorReturnItem(Collections.emptyList())
             )
             .doOnEach((ntf) -> isRefreshing.onNext(false))
