@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.converter;
+package com.lofschool.converter;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,14 +14,12 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.jakewharton.rxbinding3.view.RxView;
 import com.jakewharton.rxbinding3.widget.RxTextView;
+import com.lofschool.converter.databinding.FragmentConverterBinding;
 import com.lofschool.loftcoin.BaseComponent;
-import com.lofschool.loftcoin.R;
-import com.lofschool.loftcoin.databinding.FragmentConverterBinding;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
-import timber.log.Timber;
 
 public class ConverterFragment extends Fragment {
 
@@ -45,7 +43,6 @@ public class ConverterFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireParentFragment(), component.viewModelFactory())
             .get(ConverterViewModel.class);
-        Timber.d("%s", viewModel);
     }
 
     @Nullable

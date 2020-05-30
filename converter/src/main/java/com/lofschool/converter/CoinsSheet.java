@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.converter;
+package com.lofschool.converter;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.lofschool.converter.databinding.DialogCurrencyBinding;
 import com.lofschool.loftcoin.BaseComponent;
-import com.lofschool.loftcoin.R;
-import com.lofschool.loftcoin.databinding.DialogCurrencyBinding;
 import com.lofschool.loftcoin.widget.RecyclerViews;
 
 import javax.inject.Inject;

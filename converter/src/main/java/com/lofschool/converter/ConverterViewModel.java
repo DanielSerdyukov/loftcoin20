@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.converter;
+package com.lofschool.converter;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;

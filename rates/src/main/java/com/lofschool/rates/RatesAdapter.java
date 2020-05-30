@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.rates;
+package com.lofschool.rates;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lofschool.loftcoin.BuildConfig;
-import com.lofschool.loftcoin.R;
+import com.lofschool.base.BuildConfig;
 import com.lofschool.loftcoin.data.Coin;
-import com.lofschool.loftcoin.databinding.LiRateBinding;
 import com.lofschool.loftcoin.util.ImageLoader;
-import com.lofschool.loftcoin.widget.OutlineCircle;
 import com.lofschool.loftcoin.util.PercentFormatter;
 import com.lofschool.loftcoin.util.PriceFormatter;
+import com.lofschool.loftcoin.widget.OutlineCircle;
+import com.lofschool.rates.databinding.LiRateBinding;
 
 import java.util.List;
 import java.util.Objects;
@@ -107,9 +106,9 @@ class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
         final Context context = recyclerView.getContext();
         inflater = LayoutInflater.from(context);
         TypedValue v = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.textNegative, v, true);
+        context.getTheme().resolveAttribute(com.lofschool.base.R.attr.textNegative, v, true);
         colorNegative = v.data;
-        context.getTheme().resolveAttribute(R.attr.textPositive, v, true);
+        context.getTheme().resolveAttribute(com.lofschool.base.R.attr.textPositive, v, true);
         colorPositive = v.data;
     }
 

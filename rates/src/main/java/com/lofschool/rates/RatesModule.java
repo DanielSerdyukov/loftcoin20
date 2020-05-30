@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.rates;
+package com.lofschool.rates;
 
 import androidx.lifecycle.ViewModel;
 

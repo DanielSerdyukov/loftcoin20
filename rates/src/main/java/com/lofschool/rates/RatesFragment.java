@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.rates;
+package com.lofschool.rates;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.lofschool.loftcoin.BaseComponent;
-import com.lofschool.loftcoin.R;
-import com.lofschool.loftcoin.databinding.FragmentRatesBinding;
+import com.lofschool.rates.databinding.FragmentRatesBinding;
 
 import javax.inject.Inject;
 

@@ -3,12 +3,12 @@ package com.lofschool.loftcoin.ui.main;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentFactory;
 
-import com.lofschool.loftcoin.ui.converter.CoinsSheet;
-import com.lofschool.loftcoin.ui.converter.ConverterFragment;
+import com.lofschool.converter.CoinsSheet;
+import com.lofschool.converter.ConverterFragment;
 import com.lofschool.loftcoin.ui.currency.CurrencyDialog;
-import com.lofschool.loftcoin.ui.rates.RatesFragment;
 import com.lofschool.loftcoin.ui.wallets.WalletsFragment;
 import com.lofschool.loftcoin.util.LoftFragmentFactory;
+import com.lofschool.rates.RatesFragment;
 
 import dagger.Binds;
 import dagger.Module;

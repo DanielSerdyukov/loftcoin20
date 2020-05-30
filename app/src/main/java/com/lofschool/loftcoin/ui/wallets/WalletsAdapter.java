@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lofschool.loftcoin.BuildConfig;
+import com.lofschool.base.BuildConfig;
 import com.lofschool.loftcoin.data.Wallet;
 import com.lofschool.loftcoin.databinding.LiWalletBinding;
 import com.lofschool.loftcoin.util.BalanceFormatter;

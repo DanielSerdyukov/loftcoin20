@@ -9,6 +9,7 @@ import com.lofschool.loftcoin.data.FakeCoin;
 import com.lofschool.loftcoin.data.TestCoinsRepo;
 import com.lofschool.loftcoin.data.TestCurrencyRepo;
 import com.lofschool.loftcoin.util.TestRxSchedulers;
+import com.lofschool.rates.RatesViewModel;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/rates"
-        android:name="com.lofschool.loftcoin.ui.rates.RatesFragment"
+        android:name="com.lofschool.rates.RatesFragment"
         android:label="@string/rates"
         tools:layout="@layout/fragment_rates" />
 
     <fragment
         android:id="@+id/converter"
-        android:name="com.lofschool.loftcoin.ui.converter.ConverterFragment"
+        android:name="com.lofschool.converter.ConverterFragment"
         android:label="@string/converter"
         tools:layout="@layout/fragment_converter" />
 
@@ -31,7 +31,7 @@
 
     <dialog
         android:id="@+id/coins_sheet"
-        android:name="com.lofschool.loftcoin.ui.converter.CoinsSheet"
+        android:name="com.lofschool.converter.CoinsSheet"
         android:label="@string/choose_currency"
         tools:layout="@layout/dialog_currency" />
 

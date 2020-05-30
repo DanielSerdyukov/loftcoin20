@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.converter;
+package com.lofschool.converter;
 
 import androidx.lifecycle.ViewModel;
 

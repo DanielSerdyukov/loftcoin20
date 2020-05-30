@@ -4,16 +4,12 @@ import android.app.Application;
 import android.content.Context;
 import android.net.TrafficStats;
 
-import androidx.annotation.NonNull;
-import androidx.core.net.TrafficStatsCompat;
-
 import com.lofschool.loftcoin.data.CmcApi;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.inject.Singleton;

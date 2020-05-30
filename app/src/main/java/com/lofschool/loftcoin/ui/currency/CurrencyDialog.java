@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.lofschool.loftcoin.BaseComponent;
 import com.lofschool.loftcoin.R;
-import com.lofschool.loftcoin.databinding.DialogCurrencyBinding;
 import com.lofschool.loftcoin.widget.OnItemClick;
 
 import javax.inject.Inject;
@@ -22,7 +21,7 @@ public class CurrencyDialog extends AppCompatDialogFragment {
 
     private final CurrencyComponent component;
 
-    private DialogCurrencyBinding binding;
+    private com.lofschool.converter.databinding.DialogCurrencyBinding binding;
 
     private CurrencyViewModel viewModel;
 
@@ -48,7 +47,7 @@ public class CurrencyDialog extends AppCompatDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        binding = DialogCurrencyBinding.inflate(getLayoutInflater());
+        binding = com.lofschool.converter.databinding.DialogCurrencyBinding.inflate(getLayoutInflater());
         return new MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.choose_currency)
             .setView(binding.getRoot())

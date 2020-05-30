@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.converter;
+package com.lofschool.converter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lofschool.loftcoin.BuildConfig;
+import com.lofschool.base.BuildConfig;
+import com.lofschool.converter.databinding.LiCoinSheetBinding;
 import com.lofschool.loftcoin.data.Coin;
-import com.lofschool.loftcoin.databinding.LiCoinSheetBinding;
 import com.lofschool.loftcoin.util.ImageLoader;
 import com.lofschool.loftcoin.widget.OutlineCircle;
 

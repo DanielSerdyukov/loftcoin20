@@ -1,2 +1,5 @@
-include ':app'
+include ':converter'
+include ':base'
 rootProject.name = "LoftCoin"
+include ':app'
+include ':rates'

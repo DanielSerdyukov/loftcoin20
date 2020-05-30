@@ -1,4 +1,4 @@
-package com.lofschool.loftcoin.ui.rates;
+package com.lofschool.converter;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,15 +11,15 @@ import dagger.Component;
 
 @Singleton
 @Component(modules = {
-    RatesModule.class,
+    ConverterModule.class,
     ViewModelModule.class
 }, dependencies = {
     BaseComponent.class
 })
-abstract class RatesComponent {
+abstract class ConverterComponent {
 
     abstract ViewModelProvider.Factory viewModelFactory();
 
-    abstract RatesAdapter ratesAdapter();
+    abstract CoinsSheetAdapter coinsSheetAdapter();
 
 }
